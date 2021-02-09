@@ -1,0 +1,116 @@
+// File for the example alone
+
+code[class*="language-"],
+pre[class*="language-"] {
+  max-width: 100%;
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+  font-weight: 900;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+// SPECIALS
+
+.form-title {
+  width: 400px;
+}
+
+// CODE TEXT
+.text-code-light {
+  font-family: $font-family-code;
+  font-weight: 200;
+  color: #000;
+  padding: 20px;
+  background-color: white;
+}
+
+.images-bulls-cows {
+  display: flex;
+}
+
+.player__numbers__form {
+  width: 100%;
+  color: #a1483e;
+
+  background-color: #ed6a5a;
+  padding: 1rem;
+  border-radius: 10px;
+
+  & * {
+    border-radius: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+.player__name {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 2rem;
+
+  span {
+    font-family: "Permanent Marker", cursive;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 3rem;
+    background-color: #f8ec04;
+    clip-path: polygon(0 0, 77% 0, 100% 100%, 27% 100%);
+  }
+}
+
+.print__hints {
+  & img {
+    margin-top: 7rem;
+    width: 100%;
+  }
+  .msg {
+    filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+    // filter: border(4px solid black);
+  }
+  .hints__msg {
+    line-height: 1.5rem;
+    padding: 1rem;
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 1.2rem;
+    float: right;
+    width: 300px;
+    height: 160px;
+    background-color: #f4f1bb;
+    color: #c3574b;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 75%,
+      34% 75%,
+      0 100%,
+      10% 74%,
+      0 74%
+    );
+    // border: 20px solid black;
+    // box-shadow: inset 0px 0px 0px 10px red;
+    // box-sizing: border-box;
+  }
+}
+
+.player__numbers__msg {
+  // background-color: #ed6a5a;
+  border-radius: 10px;
+  padding: 1rem;
+
+  font-family: "Caveat", cursive;
+  color: #a1483e !important;
+  font-size: 2rem !important;
+}

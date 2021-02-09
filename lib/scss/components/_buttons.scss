@@ -1,0 +1,172 @@
+@import "../variables/variables";
+
+%btn-shared {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Caveat", cursive;
+
+  text-transform: capitalize;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+@mixin button(
+  $color: "",
+  $color-hover: "",
+  $border-color: "",
+  $text-norm: "",
+  $text-hover: "",
+  $type: "",
+  $border: "",
+  $size: ""
+) {
+  // SHARED
+  @extend %btn-shared;
+
+  @if $type == solid {
+    border: none;
+    border-radius: $border;
+    background: $color;
+    color: $text-norm;
+
+    &:hover {
+      background: $color-hover;
+      color: $text-hover;
+    }
+  }
+  @if $type == outlined {
+    border: $border-color 1px solid;
+    text-transform: capitalize;
+    background: rgba($color, 0.5);
+    color: $text-norm;
+
+    &:hover {
+      opacity: 1;
+      background: $color-hover;
+      color: $text-hover;
+    }
+  }
+  @if $size == small {
+    font-size: $button-size-small;
+  }
+  @if $size == normal {
+    font-size: $button-size-normal;
+  }
+  @if $size == big {
+    font-size: $button-size-big;
+  }
+}
+
+// DEFINE BUTTONS
+
+.btn {
+  &-send-player-numbers,
+  &-send-name {
+    @extend %btn-shared;
+    @include button(
+      #e6ebe0,
+      #f1ae8b,
+      $light-blue,
+      #a1483e,
+      white,
+      outlined,
+      20px,
+      medium
+    );
+  }
+  &-show-code {
+    @extend %btn-shared;
+    @include button(
+      #e6ebe0,
+      #f1ae8b,
+      $light-blue,
+      #a1483e,
+      white,
+      outlined,
+      20px,
+      medium
+    );
+  }
+  &-delete-user-info,
+  &-new-game {
+    @extend %btn-shared;
+
+    @include button(
+      #9bc1bc,
+      #f1ae8b,
+      $light-blue,
+      #a1483e,
+      white,
+      outlined,
+      20px,
+      medium
+    );
+  }
+  &-new-game-hints {
+    @extend %btn-shared;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.7rem;
+
+    @include button(
+      #9bc1bc,
+      #f1ae8b,
+      $light-blue,
+      #a1483e,
+      white,
+      outlined,
+      10px,
+      small
+    );
+  }
+}
+
+.btn {
+  &-outline-light-blue {
+    @extend %btn-shared;
+    color: $outline-light-blue-text;
+    background-color: $outline-light-blue;
+    border: $outline-light-blue 1px solid;
+    text-transform: capitalize;
+    // &:hover {
+    //   background-color: blue;
+    //   color: white;
+    // }
+  }
+}
+.btn {
+  &-yellow {
+    @extend %btn-shared;
+    color: $yellow-text;
+    background-color: $yellow;
+
+    text-transform: uppercase;
+
+    & :hover {
+      background-color: red;
+    }
+  }
+}
+
+// button[class^="btn-"]:hover,
+// a[class^="btn-"]:hover,
+// input[class^="btn-"]:hover {
+//   background-color: blue;
+//   color: white;
+// }
+
+// %btn-shared {
+//   display: inline-block;
+//   padding: 0.8rem 2rem;
+//   transition: all 0.5s;
+//   border: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   font-family: "Roboto", sans-serif;
+//   text-transform: uppercase;
+//   border-radius: 5px;
+// }

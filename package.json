@@ -1,0 +1,22 @@
+{
+  "name": "bulls-and-cows",
+  "version": "1.0.0",
+  "description": "Bulls and Cows",
+  "main": "bulls-and-cows.js",
+  "scripts": {
+    "sass": "node-sass --source-map lib/dist/css/main.css.map --output-style compressed -w lib/scss -o lib/dist/css -- recursive ",
+    "publish": "gh-pages -d lib/dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "gh-pages": "^3.1.0",
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {}
+}

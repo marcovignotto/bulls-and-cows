@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="favicon.ico" type="icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulls And Cows</title>
+  </head>
+  <body>
+    <audio id="hen" src="assets/rooster.mp3"></audio>
+    <div class="container">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 t-center-x">
+          <div class="row pv-1 mb-1">
+            <div class="col-4"><img src="images/bull.svg" alt="bull" /></div>
+            <div class="col-4 title__bulls__cows"><h2>Bulls & Cows</h2></div>
+            <div class="col-4"><img src="images/cow.svg" alt="cow" /></div>
+          </div>
+          <a target="_self" id="playGame"></a>
+          <div class="row pv-1 mv-1 player__name__block hide">
+            <div class="col-12 player__name center-x">
+              <input
+                class="input-text-email input__name input-player-name"
+                type="text"
+                placeholder="Insert your name"
+                value="Your Name to Play"
+              />
+            </div>
+            <div class="col-12 container__btn__send__name">
+              <button class="btn-send-name">Insert and Play</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row player__numbers__block hide">
+        <div class="col-3"></div>
+        <div class="col-6 t-center-x">
+          <div class="row-1 player__numbers__msg">
+            Insert 4 unique numbers! Good Luck!
+          </div>
+          <div class="row-1">
+            <div class="player__numbers__form">
+              <div class="col-3">
+                <input
+                  class="input-number player__number"
+                  type="number"
+                  maxlength="1"
+                  placeholder=""
+                  value="0"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  class="input-number player__number"
+                  type="number"
+                  maxlength="1"
+                  placeholder=""
+                  value="0"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  class="input-number player__number"
+                  type="number"
+                  maxlength="1"
+                  placeholder=""
+                  value="0"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  class="input-number player__number"
+                  type="number"
+                  maxlength="1"
+                  placeholder=""
+                  value="0"
+                />
+              </div>
+            </div>
+            <button class="btn-send-player-numbers">Try !!!</button>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row hints__block hide">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="row print__hints mt-2">
+            <div class="col-6">
+              <img src="images/hen.png" alt="" />
+            </div>
+            <div class="col-6 msg">
+              <div class="hints__msg hide t-center-x"></div>
+            </div>
+          </div>
+          <div class="row-1 mv-2 new__game">
+            <button class="btn-new-game">Play another game!</button>
+          </div>
+          <div class="row-1 mv-2 show__code">
+            <button class="btn-show-code">
+              I'm deranged, show me the code!
+            </button>
+          </div>
+          <div class="row-1 mv-2 delete__user__info">
+            <button class="btn-delete-user-info">
+              Reset and play with another name
+            </button>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    <script src="../js/bulls-and-cows.js" defer></script>
+  </body>
+</html>

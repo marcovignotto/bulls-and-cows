@@ -145,8 +145,6 @@ const ItemCtrl = (function () {
       }
       // filter duplicates is a bull and not a cow
       cows = cows.filter((value) => !bulls.includes(value));
-      // make unique values
-      // cows = [...new Set(cows)];
     });
 
     return { bulls: bulls.length, cows: cows.length };
@@ -254,6 +252,29 @@ const ItemCtrl = (function () {
 
       // console.log("machineNumbers", machineNumbers);
     },
+    plusOne: function (e, index) {
+      // get input nodes
+      let numberNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
+        UICtrl.getClasses().playerNumber
+      );
+
+      // select node with index and increment it
+
+      numberNodes[index].value++;
+      UICtrl.inputChecker(numberNodes[index]);
+    },
+
+    minusOne: function (e, index) {
+      // get input nodes
+      let numberNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
+        UICtrl.getClasses().playerNumber
+      );
+
+      // select node with index and increment it
+
+      numberNodes[index].value--;
+      UICtrl.inputChecker(numberNodes[index]);
+    },
   };
 })();
 
@@ -288,6 +309,10 @@ const UICtrl = (function () {
 
     gameArea: ".game__area",
     henImg: ".hen__img",
+
+    // increment mobile
+    btnNumMinus: ".btn-number-minus",
+    btnNumPlus: ".btn-number-plus",
   };
   const UISelectors = {
     inputName: document.querySelector(UIClasses.inputName),
@@ -410,12 +435,12 @@ const UICtrl = (function () {
     },
     // set game area height
     setGameAreaHeight: function () {
-      if (window.innerHeight < 830) {
-        UISelectors.printHintsMsg.style.width = "285px";
+      if (window.innerHeight < 850) {
+        UISelectors.printHintsMsg.style.width = "310px";
         UISelectors.printHintsMsg.style.clipPath =
           "polygon(10% 0, 100% 0%, 100% 75%, 10% 74%, 10% 49%, 0 35%, 10% 23%)";
         // remove margin hen
-        return (UISelectors.henImg.style.marginTop = "10px");
+        return (UISelectors.henImg.style.marginTop = "0px");
       }
     },
   };
@@ -446,11 +471,30 @@ const App = (function (DataCtrl, UIAnimations, ItemCtrl, UICtrl) {
 
     document
       .querySelectorAll(UICtrl.getClasses().playerNumber)
-      .forEach((element) => {
+      .forEach((element, index) => {
         element.addEventListener("input", function (e) {
           e.preventDefault();
           // input checker
           UICtrl.inputChecker(e.target);
+        });
+      });
+
+    // add event L to mobile increment
+    document
+      .querySelectorAll(UICtrl.getClasses().btnNumMinus)
+      .forEach((x, index) => {
+        x.addEventListener("click", function (e) {
+          e.preventDefault();
+          ItemCtrl.minusOne(e, index);
+        });
+      });
+
+    document
+      .querySelectorAll(UICtrl.getClasses().btnNumPlus)
+      .forEach((x, index) => {
+        x.addEventListener("click", function (e) {
+          e.preventDefault();
+          ItemCtrl.plusOne(e, index);
         });
       });
   };

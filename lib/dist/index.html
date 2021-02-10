@@ -59,67 +59,80 @@
         </div>
         <div class="col-3 hide-tablet hide-phone"></div>
       </div>
-      <div class="row player__numbers__block hide">
-        <div class="col-3 hide-tablet hide-phone"></div>
-        <div class="col-6 col-m-8 t-center-x col-m-6">
-          <div class="row-1 player__numbers__msg">
-            Insert 4 unique numbers! Good Luck!
-          </div>
-          <div class="row-1">
-            <div class="row player__numbers__form">
-              <div class="col-3 col-m-2 col-lg-1">
-                <input
-                  class="input-number player__number"
-                  type="number"
-                  maxlength="1"
-                  placeholder=""
-                  value="0"
-                />
+      <!-- START -->
+      <div class="row-1 game__area">
+        <div class="row hints__block hide">
+          <div class="col-3 hide-tablet hide-phone"></div>
+          <div class="col-6 col-m-8">
+            <div class="row print__hints mt-2">
+              <div class="col-6 col-m-4 col-lg-2">
+                <img class="hen__img" src="images/hen.png" alt="" />
               </div>
-              <div class="col-3 col-m-2 col-lg-1">
-                <input
-                  class="input-number player__number"
-                  type="number"
-                  maxlength="1"
-                  placeholder=""
-                  value="0"
-                />
-              </div>
-              <div class="col-3 col-m-2 col-lg-1">
-                <input
-                  class="input-number col-lg-1 player__number"
-                  type="number"
-                  maxlength="1"
-                  placeholder=""
-                  value="0"
-                />
-              </div>
-              <div class="col-3 col-m-2 col-lg-1">
-                <input
-                  class="input-number player__number"
-                  type="number"
-                  maxlength="1"
-                  placeholder=""
-                  value="0"
-                />
+              <div class="col-6 msg col-m-4 col-lg-2">
+                <div class="hints__msg hide t-center-x"></div>
               </div>
             </div>
-            <button class="btn-send-player-numbers">Try !!!</button>
           </div>
+          <div class="col-3 hide-tablet hide-phone"></div>
         </div>
-        <div class="col-3 hide-tablet hide-phone"></div>
+        <div class="row player__numbers__block hide">
+          <div class="col-3 hide-tablet hide-phone"></div>
+          <div class="col-6 col-m-8 t-center-x col-m-6">
+            <div class="row-1 player__numbers__msg">
+              Insert 4 unique numbers! Good Luck!
+            </div>
+            <div class="row-1">
+              <div class="row player__numbers__form">
+                <div class="col-3 col-m-2 col-lg-1">
+                  <input
+                    class="input-number player__number"
+                    type="number"
+                    maxlength="1"
+                    placeholder=""
+                    value="0"
+                  />
+                </div>
+                <div class="col-3 col-m-2 col-lg-1">
+                  <input
+                    class="input-number player__number"
+                    type="number"
+                    maxlength="1"
+                    placeholder=""
+                    value="0"
+                  />
+                </div>
+                <div class="col-3 col-m-2 col-lg-1">
+                  <input
+                    class="input-number col-lg-1 player__number"
+                    type="number"
+                    maxlength="1"
+                    placeholder=""
+                    value="0"
+                  />
+                </div>
+                <div class="col-3 col-m-2 col-lg-1">
+                  <input
+                    class="input-number player__number"
+                    type="number"
+                    maxlength="1"
+                    placeholder=""
+                    value="0"
+                  />
+                </div>
+              </div>
+              <button class="btn-send-player-numbers">Try !!!</button>
+            </div>
+          </div>
+          <div class="col-3 hide-tablet hide-phone"></div>
+        </div>
       </div>
-      <div class="row hints__block hide">
+
+      <!-- END -->
+
+      <!-- OPTIONS BLOCK -->
+      <div class="row options__block hide">
         <div class="col-3 hide-tablet hide-phone"></div>
         <div class="col-6 col-m-8">
-          <div class="row print__hints mt-2">
-            <div class="col-6 col-m-4 col-lg-2">
-              <img src="images/hen.png" alt="" />
-            </div>
-            <div class="col-6 msg col-m-4 col-lg-2">
-              <div class="hints__msg hide t-center-x"></div>
-            </div>
-          </div>
           <div class="row-1 mv-2 new__game">
             <button class="btn-new-game">Play another game!</button>
           </div>
@@ -135,6 +148,6 @@
         <div class="col-3 hide-tablet hide-phone"></div>
       </div>
     </div>
-    <script src="scripts/bulls-and-cows.js" defer></script>
+    <script src="../js/bulls-and-cows.js" defer></script>
   </body>
 </html>

@@ -22,6 +22,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bulls And Cows</title>
+    <script
+      src="https://kit.fontawesome.com/2c6793b698.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <audio id="hen" src="assets/rooster.mp3"></audio>
@@ -82,42 +86,90 @@
               Insert 4 unique numbers! Good Luck!
             </div>
             <div class="row-1">
-              <div class="row player__numbers__form">
-                <div class="col-3 col-m-2 col-lg-1">
-                  <input
-                    class="input-number player__number"
-                    type="number"
-                    maxlength="1"
-                    placeholder=""
-                    value="0"
-                  />
+              <div class="row-1 player__numbers__form">
+                <div class="row numbers__inputs">
+                  <div class="col-3 col-m-2 col-lg-1">
+                    <input
+                      class="input-number player__number"
+                      type="number"
+                      maxlength="1"
+                      placeholder=""
+                      value="0"
+                      disabled="true"
+                    />
+                  </div>
+                  <div class="col-3 col-m-2 col-lg-1">
+                    <input
+                      class="input-number player__number"
+                      type="number"
+                      maxlength="1"
+                      placeholder=""
+                      value="0"
+                      disabled="true"
+                    />
+                  </div>
+                  <div class="col-3 col-m-2 col-lg-1">
+                    <input
+                      class="input-number col-lg-1 player__number"
+                      type="number"
+                      maxlength="1"
+                      placeholder=""
+                      value="0"
+                      disabled="true"
+                    />
+                  </div>
+                  <div class="col-3 col-m-2 col-lg-1">
+                    <input
+                      class="input-number player__number"
+                      type="number"
+                      maxlength="1"
+                      placeholder=""
+                      value="0"
+                      disabled="true"
+                    />
+                  </div>
                 </div>
-                <div class="col-3 col-m-2 col-lg-1">
-                  <input
-                    class="input-number player__number"
-                    type="number"
-                    maxlength="1"
-                    placeholder=""
-                    value="0"
-                  />
-                </div>
-                <div class="col-3 col-m-2 col-lg-1">
-                  <input
-                    class="input-number col-lg-1 player__number"
-                    type="number"
-                    maxlength="1"
-                    placeholder=""
-                    value="0"
-                  />
-                </div>
-                <div class="col-3 col-m-2 col-lg-1">
-                  <input
-                    class="input-number player__number"
-                    type="number"
-                    maxlength="1"
-                    placeholder=""
-                    value="0"
-                  />
+                <div class="row numbers__incrementers">
+                  <div class="center-x col-3 col-m-2 col-lg-1">
+                    <div class="input__mobile">
+                      <button class="btn-number-minus">
+                        <i class="fas fa-minus-square"></i>
+                      </button>
+                      <button class="btn-number-plus">
+                        <i class="fas fa-plus-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="center-x col-3 col-m-2 col-lg-1">
+                    <div class="input__mobile">
+                      <button class="btn-number-minus">
+                        <i class="fas fa-minus-square"></i>
+                      </button>
+                      <button class="btn-number-plus">
+                        <i class="fas fa-plus-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="center-x col-3 col-m-2 col-lg-1">
+                    <div class="input__mobile">
+                      <button class="btn-number-minus">
+                        <i class="fas fa-minus-square"></i>
+                      </button>
+                      <button class="btn-number-plus">
+                        <i class="fas fa-plus-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="center-x col-3 col-m-2 col-lg-1">
+                    <div class="input__mobile">
+                      <button class="btn-number-minus">
+                        <i class="fas fa-minus-square"></i>
+                      </button>
+                      <button class="btn-number-plus">
+                        <i class="fas fa-plus-square"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
               <button class="btn-send-player-numbers">Try !!!</button>

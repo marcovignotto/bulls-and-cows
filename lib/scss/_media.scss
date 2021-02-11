@@ -11,6 +11,15 @@
 @include media($tablet-desktop) {
   // !!! IMPORTANT ROW FOR TABLET >> CHANGE IN VARIABLES
 
+  .container {
+    // Option to give a width to the container
+    width: $website-width-tablet-desktop;
+    padding: 1rem 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
   .row {
     display: grid;
     grid-template-columns: repeat($columns-tablet, 1fr);
@@ -74,7 +83,13 @@
 }
 
 @include media($tablet) {
-  :root {
+  .container {
+    // Option to give a width to the container
+    width: $website-width-tablet;
+    padding: 1rem 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
   }
 
   // !!! IMPORTANT ROW FOR TABLET >> CHANGE IN VARIABLES
@@ -146,7 +161,7 @@
 
 @include media($phone) {
   :root {
-    min-width: 480px;
+    min-width: 400px;
   }
 
   .container {

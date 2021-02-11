@@ -22,9 +22,6 @@
 @import "variables/variables";
 @import "variables/aligns";
 
-// MEDIA QUERIES
-@import "media";
-
 // COMPONENTS
 @import "components/menu";
 @import "components/buttons";
@@ -34,3 +31,6 @@
 
 //
 @import "example";
+
+// MEDIA QUERIES
+@import "media";

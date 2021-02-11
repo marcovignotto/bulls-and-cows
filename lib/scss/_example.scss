@@ -50,12 +50,22 @@ pre[class*="language-"] {
   padding: 1rem;
   border-radius: 10px;
 
-  & * {
+  .player__number {
     border-radius: 10px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    // margin-left: 0.5rem;
+    // margin-right: 0.45rem;
   }
 }
+.player__numbers__msg {
+  // background-color: #ed6a5a;
+  border-radius: 10px;
+  padding: 1rem;
+
+  font-family: "Caveat", cursive;
+  color: #a1483e;
+  font-size: 2rem !important;
+}
+
 .player__name {
   font-family: "Gloria Hallelujah", cursive;
   font-size: 2rem;
@@ -81,8 +91,8 @@ pre[class*="language-"] {
     // filter: border(4px solid black);
   }
   .hints__msg {
-    line-height: 1.5rem;
-    padding: 1rem;
+    line-height: 2.2rem;
+    padding: 0.7rem;
     font-family: "Gloria Hallelujah", cursive;
     font-size: 1.2rem;
     float: right;
@@ -103,14 +113,42 @@ pre[class*="language-"] {
     // box-shadow: inset 0px 0px 0px 10px red;
     // box-sizing: border-box;
   }
+  span {
+    color: #f4f1bb;
+    background-color: #c3574b;
+    padding-right: 3px;
+    padding-left: 3px;
+  }
 }
 
-.player__numbers__msg {
-  // background-color: #ed6a5a;
-  border-radius: 10px;
-  padding: 1rem;
+.input__mobile {
+  display: flex;
+  // float: right;
+  width: 100%;
+  justify-content: center;
+  .btn-number-minus {
+    font-size: 1.75rem;
+    padding-right: 1.5rem;
+  }
+  .btn-number-plus {
+    font-size: 1.75rem;
+  }
+}
 
-  font-family: "Caveat", cursive;
-  color: #a1483e !important;
-  font-size: 2rem !important;
+.numbers__incrementers {
+  width: 100%;
+  // color: #a1483e;
+
+  // background-color: #ed6a5a;
+  // padding-left: 1rem;
+  // border-radius: 10px;
+
+  .btn-number-minus {
+    // margin-right: 1.7rem;
+  }
+  // & * {
+  //   // border-radius: 10px;
+  //   // margin-left: 0.3rem;
+  //   // margin-right: 0.5rem;
+  // }
 }

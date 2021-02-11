@@ -1,18 +1,18 @@
-let attempt = 0;
-
 const DataCtrl = (function () {
-  // private function to create arr
-  const createArrNumbers = (start, total) => {
-    let arrNew = [];
-    for (let i = start; i < total + 1; i++) {
-      arrNew.push(i);
-    }
-    return arrNew;
-  };
   // private func to create 4 digs
   const randomGenerator = (total) => {
+    // private function to create arr
+    const createArrNumbers = (start, total) => {
+      let arrNew = [];
+      for (let i = start; i < total + 1; i++) {
+        arrNew.push(i);
+      }
+      return arrNew;
+    };
+
     let number = "";
     let newNumbers = "";
+
     let arrAllNumbers = createArrNumbers(0, 9);
 
     for (let i = 0; i < total; i++) {
@@ -24,7 +24,7 @@ const DataCtrl = (function () {
     return newNumbers;
   };
   // attempt counter
-  const attempt = { attempt: 0 };
+  const gameInfo = { attempt: 0 };
   // players
   const player01 = {
     firstName: "",
@@ -53,8 +53,8 @@ const DataCtrl = (function () {
         return playerMachine;
       }
     },
-    getAttempt: function () {
-      return attempt.attempt;
+    getGameInfo: function () {
+      return gameInfo;
     },
   };
 })();
@@ -83,9 +83,6 @@ const UIAnimations = (function () {
       }, 800);
     },
     startGame: function () {
-      console.log("start game");
-      // e.preventDefault();
-      // console.log(e, "fired");
       let playerBlock = UICtrl.getSelectors().playerNumbersBlock;
       let hintsBlock = UICtrl.getSelectors().hintsBlock;
       let optionsBlock = UICtrl.getSelectors().optionsBlock;
@@ -176,10 +173,8 @@ const ItemCtrl = (function () {
 
       // if (playerNumberArr.length <= 3) {
       playerNumberArr = [];
-      let numberNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
-        UICtrl.getClasses().playerNumber
-      );
-      numberNodes.forEach((x) => {
+
+      UICtrl.getInputNodes().forEach((x) => {
         playerNumberArr.push(x.value);
       });
 
@@ -190,13 +185,11 @@ const ItemCtrl = (function () {
     playGame: function (e) {
       e.preventDefault();
 
-      UICtrl.letsPlay(); // let attempt = DataCtrl.getAttempt();
+      UICtrl.letsPlay();
 
       let playerNumbers = ItemCtrl.getPlayerNumbers(e);
 
       if ([...new Set(playerNumbers)].length !== 4) {
-        // UICtrl.getSelectors().playerNumbersMsg.style.color = "white";
-        // UICtrl.getSelectors().playerNumbersMsg.style.backgroundColor = "red";
         return UICtrl.setPlayerErrorMsg(
           UICtrl.getSelectors().playerNumbersMsg,
           "You need unique numbers!",
@@ -204,7 +197,8 @@ const ItemCtrl = (function () {
           "white"
         );
       }
-      attempt++;
+
+      App.gameInfo().attempt++;
 
       UICtrl.setPlayerErrorMsg(
         UICtrl.getSelectors().playerNumbersMsg,
@@ -219,61 +213,70 @@ const ItemCtrl = (function () {
 
       UICtrl.addRemoveHide("remove", UICtrl.getSelectors().printHintsMsg);
 
-      // bulls msg
-      if (objHints.bulls === 0 && objHints.cows === 0) {
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `You ain't got no match!<br> You are really far!!!`;
-      }
-      if (objHints.bulls === 1) {
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and <br><span>${objHints.cows} Cows!</span> Pretty weak...`;
-      }
-      if (objHints.bulls <= 2) {
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and <br><span>${objHints.cows} Cows!</span>`;
-      }
-      if (objHints.bulls === 3) {
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls!!!</span> <br>Great! Really close!!!`;
-      }
-      // // bulls msg
-      if (objHints.bulls === 0 && objHints.cows <= 2) {
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and<br> <span>${objHints.cows} Cows...</span> Such a disaster...`;
-      }
-
-      // WINS
-      if (objHints.bulls === 4) {
+      // check attempts
+      if (App.gameInfo().attempt === 10) {
         UICtrl.playHen();
 
-        UICtrl.getSelectors().printHintsMsg.innerHTML = `Great!!!! You win!!!<br> With <span>${attempt}</span><br> attempts! ${UICtrl.getNewGameBtn()}`;
+        UICtrl.getSelectors().btnSendPlayerNumbers.disabled = true;
+
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You lose!!! AHHH AHH `);
+      }
+      // check wins
+      if (objHints.bulls === 4) {
+        UICtrl.playHen();
+        UICtrl.getSelectors().btnSendPlayerNumbers.disabled = true;
+
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `Great!!!! You win!!!<br> With <span>${
+          App.gameInfo().attempt
+        }</span><br> attempts! ${UICtrl.getNewGameBtn()}`);
       }
 
-      // check attempts
-
-      // if (attempt === 10) {
-      //   UICtrl.getSelectors().printHintsMsg.innerHTML = `You lose!!! AHHH AHH `;
-      // }
-
-      // console.log("machineNumbers", machineNumbers);
+      //  bulls msgs
+      if (objHints.bulls === 1) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bull</span> and <br><span>${objHints.cows} Cows!</span> Pretty weak...`);
+      }
+      if (objHints.bulls === 2) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and <br><span>${objHints.cows} Cows!</span>`);
+      }
+      if (objHints.bulls === 3) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls!!!</span> <br>Great! Really close!!!`);
+      }
+      // Cows msg
+      if (objHints.bulls === 0 && objHints.cows === 0) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You ain't got no matches!<br> You are really far!!!`);
+      }
+      if (objHints.cows === 1) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and<br> <span>${objHints.cows} Cow...</span> Such a disaster...`);
+      }
+      if (objHints.cows === 2) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and<br> <span>${objHints.cows} Cows...</span> Such a disaster...`);
+      }
+      if (objHints.cows === 3) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.bulls} Bulls</span> and<br> <span>${objHints.cows} Cows...</span>Not so bad...`);
+      }
+      if (objHints.cows === 4) {
+        return (UICtrl.getSelectors().printHintsMsg.innerHTML = `You have <span>${objHints.cows} Cows!</span>Just around with them!`);
+      }
     },
     plusOne: function (e, index) {
       // get input nodes
-      let numberNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
-        UICtrl.getClasses().playerNumber
-      );
-
       // select node with index and increment it
 
-      numberNodes[index].value++;
-      UICtrl.inputChecker(numberNodes[index]);
+      // CHECK VALUE AND STOP INCREMENT
+      if (UICtrl.getInputNodes()[index].value > 8) {
+        return UICtrl.getInputNodes()[index].value;
+      }
+      UICtrl.getInputNodes()[index].value++;
+      UICtrl.inputChecker(UICtrl.getInputNodes()[index]);
     },
 
     minusOne: function (e, index) {
-      // get input nodes
-      let numberNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
-        UICtrl.getClasses().playerNumber
-      );
+      if (UICtrl.getInputNodes()[index].value < 1) {
+        return UICtrl.getInputNodes()[index].value;
+      }
 
-      // select node with index and increment it
-
-      numberNodes[index].value--;
-      UICtrl.inputChecker(numberNodes[index]);
+      UICtrl.getInputNodes()[index].value--;
+      UICtrl.inputChecker(UICtrl.getInputNodes()[index]);
     },
   };
 })();
@@ -345,6 +348,12 @@ const UICtrl = (function () {
   };
 
   return {
+    getInputNodes: function () {
+      let inputNodes = UICtrl.getSelectors().formPlayerNumbers.querySelectorAll(
+        UICtrl.getClasses().playerNumber
+      );
+      return inputNodes;
+    },
     getClasses: function () {
       return UIClasses;
     },
@@ -449,6 +458,7 @@ const UICtrl = (function () {
 const App = (function (DataCtrl, UIAnimations, ItemCtrl, UICtrl) {
   // test height
   const UISelectors = UICtrl.getSelectors();
+  const gameInfo = DataCtrl.getGameInfo();
 
   // SET GAME AREA
   UICtrl.setGameAreaHeight();
@@ -500,11 +510,8 @@ const App = (function (DataCtrl, UIAnimations, ItemCtrl, UICtrl) {
   };
 
   const startUpCheck = function () {
-    // localStorage.getItem("player01").firstName;
-    // console.log(JSON.parse(localStorage.getItem("player01")));
     if (JSON.parse(localStorage.getItem("player01")) === null) {
       UISelectors.playerNameBlock.classList.remove("hide");
-      // UISelectors.btnSendPlayerNumbers.disabled = UICtrl.playerHasName();
     } else {
       UICtrl.addRemoveHide("remove", UICtrl.getSelectors().playerNumbersBlock);
       UICtrl.addRemoveHide("remove", UICtrl.getSelectors().hintsBlock);
@@ -520,6 +527,7 @@ const App = (function (DataCtrl, UIAnimations, ItemCtrl, UICtrl) {
       loadEventListeners();
       startUpCheck();
     },
+    gameInfo: () => gameInfo,
   };
 })(DataCtrl, UIAnimations, ItemCtrl, UICtrl);
 

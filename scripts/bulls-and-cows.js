@@ -455,15 +455,22 @@ const UICtrl = (function () {
       }
     },
     setGameAreaWidth: function () {
-      if (window.innerWidth < 550) {
-        console.log("ok");
-        UISelectors.printHintsMsg.style.width = "270px";
+      if (window.innerWidth > 450 && window.innerWidth < 550) {
+        console.log("o");
+        UISelectors.printHintsMsg.style.width = "280px";
         UISelectors.printHintsMsg.style.marginLeft = "-100px";
         // UISelectors.printHintsMsg.style.backgroundColor = "white";
         UISelectors.printHintsMsg.style.clipPath =
-          "polygon(10% 0, 100% 0%, 100% 75%, 10% 74%, 10% 49%, 0 35%, 10% 23%)";
-        // remove margin hen
+          "polygon(10% 0, 100% 0%, 100% 75%, 10% 74%, 10% 49%, 0 35%, 10% 23%)"; // remove margin hen
         UISelectors.henImg.style.width = "150px";
+        return (UISelectors.henImg.style.marginTop = "80px");
+      }
+      if (window.innerWidth > 551 && window.innerWidth < 650) {
+        UISelectors.printHintsMsg.style.width = "270px";
+        UISelectors.printHintsMsg.style.marginLeft = "-50px";
+        // UISelectors.printHintsMsg.style.backgroundColor = "white";
+        UISelectors.printHintsMsg.style.clipPath = null; // remove margin hen
+        UISelectors.henImg.style.width = "180px";
         return (UISelectors.henImg.style.marginTop = "80px");
       }
     },

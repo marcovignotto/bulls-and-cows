@@ -9,9 +9,6 @@
 }
 
 @include media($tablet-desktop) {
-  :root {
-  }
-
   // !!! IMPORTANT ROW FOR TABLET >> CHANGE IN VARIABLES
 
   .row {
@@ -149,7 +146,16 @@
 
 @include media($phone) {
   :root {
-    min-width: 450px;
+    min-width: 480px;
+  }
+
+  .container {
+    // Option to give a width to the container
+    width: $website-width-phone;
+    padding: 1rem 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
   }
   // !!! IMPORTANT ROW FOR PHONE >> CHANGE IN VARIABLES
 
@@ -169,14 +175,41 @@
   }
 
   .input-player-name {
-    width: 400px;
+    width: 380px;
   }
 
   .player__numbers__form {
+    width: 99.5%;
+    color: #a1483e;
+
+    background-color: #ed6a5a;
+    padding: 1rem;
+    border-radius: 10px;
+
+    .player__number {
+      border-radius: 10px;
+      // margin-left: 0.5rem;
+      // margin-right: 0.45rem;
+    }
+
     & * {
+      width: 99.5%;
       border-radius: 7px;
       margin-left: 0rem;
       margin-right: 0rem;
+    }
+  }
+  .input__mobile {
+    display: flex;
+    // float: right;
+    width: 99.5%;
+    justify-content: center;
+    .btn-number-minus {
+      font-size: 2rem;
+      padding-right: 1rem;
+    }
+    .btn-number-plus {
+      font-size: 2rem;
     }
   }
 
@@ -194,35 +227,6 @@
       width: 140%;
     }
   }
-
-  // .input-number {
-  //   height: 40px;
-  //   width: 100%;
-  //   font-size: 1.6rem !important;
-  //   margin-right: 0px;
-  //   margin: 0px;
-  // }
-
-  .input__mobile {
-    display: flex;
-    // float: right;
-    width: 100%;
-    justify-content: center;
-    .btn-number-minus {
-      font-size: 2.5rem;
-      padding-right: 1.5rem;
-    }
-    .btn-number-plus {
-      font-size: 2.5rem;
-    }
-  }
-
-  // input[type="number"]::-webkit-inner-spin-button {
-  //   margin-right: -10px;
-  //   width: 12px;
-  //   height: 30px;
-  //   // opacity: 1;
-  // }
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
